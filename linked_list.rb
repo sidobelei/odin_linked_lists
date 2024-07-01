@@ -80,4 +80,17 @@ class LinkedList
         end
         return nil
     end
+
+    def to_s
+        string = ""
+        index = 0
+        node = @head
+        until index >= size
+            string += "( #{node.value} ) -> "
+            node = node.next_node
+            index += 1
+        end
+        string += "nil\n"
+        return string
+    end
 end
