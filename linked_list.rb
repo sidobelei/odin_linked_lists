@@ -42,4 +42,20 @@ class LinkedList
         end
         return node
     end
+
+    def pop
+        if size > 1
+            new_tail = @head
+            until new_tail.next_node == @tail
+                new_tail = new_tail.next_node
+            end
+            @tail = new_tail
+            new_tail.next_node = nil
+            @size -= 1
+        elsif size == 1
+            @head = nil
+            @tail = nil
+            @size -= 1
+        end
+    end
 end
