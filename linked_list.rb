@@ -58,4 +58,26 @@ class LinkedList
             @size -= 1
         end
     end
+
+    def contains?(value)
+        found = find(value)
+        if found.nil?
+            return false
+        else
+            return true
+        end
+    end
+
+    def find(value)
+        index = 0
+        node = @head
+        until node == nil
+            if node.value == value
+                return index
+            end
+            node = node.next_node
+            index += 1
+        end
+        return nil
+    end
 end
