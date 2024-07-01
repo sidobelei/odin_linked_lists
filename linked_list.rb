@@ -32,4 +32,14 @@ class LinkedList
         end
         @size += 1
     end
+
+    def at(index)
+        position = 0
+        node = @head 
+        until position == index
+            node = @head.next_node
+            position += 1
+        end
+        return node
+    end
 end
