@@ -116,4 +116,29 @@ class LinkedList
             end
         end
     end
+
+    def remove_at(index)
+        if index >= size || index < 0
+            return puts "Error: Index out of range."
+        end
+        current_node = @head
+        if index == 0
+            @head = current_node.next_node
+            current_node.next_node = nil
+            @size -= 1
+        elsif index == size - 1
+            pop
+        else
+            prev_node = nil
+            position = 0
+            until position == index
+                position += 1
+                prev_node = current_node
+                current_node = current_node.next_node
+            end
+            prev_node.next_node = current_node.next_node
+            current_node.next_node = nil
+            @size -= 1
+        end
+    end
 end
