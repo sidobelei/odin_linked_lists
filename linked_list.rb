@@ -95,25 +95,26 @@ class LinkedList
     end
 
     def insert_at(value, index)
-        if index <= size
-            if index == 0
-                prepend(value)
-            elsif index == size
-                append(value)
-            else
-                node = Node.new(value)
-                current_node = @head
-                prev_node = nil
-                position = 0 
-                until position == index
-                    position += 1
-                    prev_node = current_node
-                    current_node = current_node.next_node
-                end
-                node.next_node = current_node
-                prev_node.next_node = node
-                @size += 1
+        if index > size || index < 0
+            return puts "Error: Index out of range."
+        end
+        if index == 0
+            prepend(value)
+        elsif index == size
+            append(value)
+        else
+            node = Node.new(value)
+            current_node = @head
+            prev_node = nil
+            position = 0 
+            until position == index
+                position += 1
+                prev_node = current_node
+                current_node = current_node.next_node
             end
+            node.next_node = current_node
+            prev_node.next_node = node
+            @size += 1
         end
     end
 
