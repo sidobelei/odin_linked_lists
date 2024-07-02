@@ -34,10 +34,13 @@ class LinkedList
     end
 
     def at(index)
+        if index >= size || index < 0
+            return puts "Error: Index out of range."
+        end
         position = 0
         node = @head 
         until position == index
-            node = @head.next_node
+            node = node.next_node
             position += 1
         end
         return node
